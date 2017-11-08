@@ -1,4 +1,4 @@
 package models
 
-case class UrlRecord(id:Option[Long], url:String, newUr:String)
+case class UrlRecord(id:Option[Long], url:String, newUrl:String)
 
