@@ -1,4 +1,4 @@
-name := "just-play-scala"
+name := "url_shortener_play"
 
 version := "1.0-SNAPSHOT"
 
