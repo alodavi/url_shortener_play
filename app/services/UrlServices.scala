@@ -2,6 +2,8 @@ package services
 
 import java.net.URL
 
+import play.api.libs.json.{JsObject, JsString}
+
 import scala.util.{Failure, Success, Try}
 
 object UrlServices {
@@ -10,15 +12,23 @@ object UrlServices {
     baseUrl+randomNumber(inputUrl)
   }
 
-  def randomNumber(url:String):Int={
+  private def randomNumber(url:String):Int={
     validate(url) match {
       case Success(valid) => Math.floor(100000 + Math.random() * 900000).toInt
       case Failure(error) => throw new Exception("Invalid URL") //todo specific exception
     }
   }
 
-  def validate(url:String)={
+  private def validate(url:String)={
     Try { new URL(url) }
+  }
+
+  def toJson(url: String, tiny: String): JsObject ={
+    JsObject(Seq(
+      "url" -> JsString(url),
+      "new url" -> JsString(tiny)
+    )
+    )
   }
 
 }
