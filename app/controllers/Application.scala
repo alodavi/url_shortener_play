@@ -21,4 +21,12 @@ object Application extends Controller {
     Ok(UrlServices.toJson(url,generatedUrl))
   }
 
+  def redirect(newUrl : String) = Action { implicit request =>
+    val url =  routes.Application.index().absoluteURL()+ newUrl
+    val oldUrl = UrlRecords.findOld(url) match {
+      case Success(c) => c.url
+      case Failure(e) => throw new Exception("Url not present in the database")
+    }
+    Redirect(oldUrl)
+  }
 }
