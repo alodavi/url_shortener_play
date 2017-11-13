@@ -1,4 +1,4 @@
-name := "url_shortener_play"
+name := "url-shortener-play"
 
 version := "1.0-SNAPSHOT"
 

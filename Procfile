@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/url_shortener_play
+web: target/universal/stage/bin/url-shortener-play
