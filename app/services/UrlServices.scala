@@ -2,6 +2,7 @@ package services
 
 import java.net.URL
 
+import models.{UrlRecord, UrlRecords}
 import play.api.libs.json.{JsObject, JsString}
 
 import scala.util.{Failure, Success, Try}
@@ -9,7 +10,10 @@ import scala.util.{Failure, Success, Try}
 object UrlServices {
 
   def generateTinyUrl(inputUrl:String, baseUrl: String):String = {
-    baseUrl+randomNumber(inputUrl)
+    val tiny = baseUrl+randomNumber(inputUrl)
+    val record = UrlRecord(None,url = inputUrl, newUrl = tiny)
+    UrlRecords.create(record)
+    tiny
   }
 
   private def randomNumber(url:String):Int={
