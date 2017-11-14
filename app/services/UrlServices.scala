@@ -19,7 +19,7 @@ object UrlServices {
   private def randomNumber(url:String):Int={
     validate(url) match {
       case Success(valid) => Math.floor(100000 + Math.random() * 900000).toInt
-      case Failure(error) => throw new Exception("Invalid URL") //todo specific exception
+      case Failure(error) => -1//throw new Exception("Invalid URL") //todo specific exception
     }
   }
 
