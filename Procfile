@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/url-shortener-play
+web: target/universal/stage/bin/url-shortener-play -Dhttp.port=${PORT} -DapplyEvolutions.default=true -Ddb.default.driver=org.postgresql.Driver -Ddb.default.url=${DATABASE_URL}
